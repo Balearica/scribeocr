@@ -67,7 +67,7 @@ export async function loadFontBrowser(fontFamily, fontStyle, src, overwrite = fa
 // Load font as opentype.js object, call loadFontBrowser to load as FontFace
 export async function loadFont(font, src = null, overwrite = false){
   if(typeof(window.fontObj) == "undefined"){
-    window.fontObj = new Object;
+    window.fontObj = {};
   }
 
 
@@ -95,7 +95,7 @@ export async function loadFont(font, src = null, overwrite = false){
   // Only load font if not already loaded
   if(overwrite || !fontObj[familyStr][styleStr]){
     if(typeof(src) == "string"){
-      fontObj[familyStr][styleStr] = await opentype.load(src);
+      fontObj[familyStr][styleStr] = opentype.load(src);
 
       src = "url(" + src + ")";
     } else {

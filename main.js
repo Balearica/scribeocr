@@ -1645,7 +1645,7 @@ function addWordClick() {
     // https://developer.mozilla.org/en-US/docs/Web/API/TextMetrics/fontBoundingBoxDescent
     //let fontDesc = (jMetrics.fontBoundingBoxDescent - oMetrics.actualBoundingBoxDescent) * (fontSize / 1000);
 
-    let fontBoundingBoxDescent = Math.round(Math.abs(fontObj[globalSettings.defaultFont]["normal"].descender) * (1000 / fontObj[globalSettings.defaultFont]["normal"].unitsPerEm));
+    let fontBoundingBoxDescent = Math.round(Math.abs(fontNormal.descender) * (1000 / fontNormal.unitsPerEm));
 
     let fontDesc = (fontBoundingBoxDescent - oMetrics.actualBoundingBoxDescent) * (fontSize / 1000);
 
@@ -2715,11 +2715,13 @@ async function renderPDF() {
         //Taking all spaces out of font names as a quick fix--this can likely be removed down the line if patched.
         //https://github.com/foliojs/pdfkit/issues/1314
 
-        fontObj[familyKey][key].tables.name.postScriptName["en"] = globalSettings.defaultFont + "-SmallCaps";
-        fontObj[familyKey][key].tables.name.fontSubfamily["en"] = "SmallCaps";
-        fontObj[familyKey][key].tables.name.postScriptName["en"] = fontObj[familyKey][key].tables.name.postScriptName["en"].replaceAll(/\s+/g, "");
+        const fontObjI = await fontObj[familyKey][key];
 
-        fontObjData[familyKey][key] = fontObj[familyKey][key].toArrayBuffer();
+        fontObjI.tables.name.postScriptName["en"] = globalSettings.defaultFont + "-SmallCaps";
+        fontObjI.tables.name.fontSubfamily["en"] = "SmallCaps";
+        fontObjI.tables.name.postScriptName["en"] = fontObjI.tables.name.postScriptName["en"].replaceAll(/\s+/g, "");
+
+        fontObjData[familyKey][key] = fontObjI.toArrayBuffer();
       // if (key == "small-caps" && optimizeFontElem.checked && familyKey == globalSettings.defaultFont) {
       //   fontObjData[familyKey][key] = fontDataOptimizedSmallCaps;
       } else if (key == "normal" && optimizeFontElem.checked && familyKey == globalSettings.defaultFont) {
@@ -2727,8 +2729,9 @@ async function renderPDF() {
       } else if (key == "italic" && optimizeFontElem.checked && familyKey == globalSettings.defaultFont) {
         fontObjData[familyKey][key] = fontDataOptimizedItalic;
       } else {
-        fontObj[familyKey][key].tables.name.postScriptName["en"] = fontObj[familyKey][key].tables.name.postScriptName["en"].replaceAll(/\s+/g, "");
-        fontObjData[familyKey][key] = fontObj[familyKey][key].toArrayBuffer();
+        const fontObjI = await fontObj[familyKey][key];
+        fontObjI.tables.name.postScriptName["en"] = fontObjI.tables.name.postScriptName["en"].replaceAll(/\s+/g, "");
+        fontObjData[familyKey][key] = fontObjI.toArrayBuffer();
       }
 
 
@@ -2816,14 +2819,17 @@ var fontDataOptimized, fontDataOptimizedItalic, fontDataOptimizedSmallCaps;
 
 export async function optimizeFont2() {
 
+  const fontNormal = await fontObj[globalSettings.defaultFont]["normal"];
+  const fontItalic = await fontObj[globalSettings.defaultFont]["italic"];
 
-  fontObj[globalSettings.defaultFont]["normal"].tables.gsub = null;
-  fontObj[globalSettings.defaultFont]["italic"].tables.gsub = null;
+
+  fontNormal.tables.gsub = null;
+  fontItalic.tables.gsub = null;
 
   // Quick fix due to bug in pdfkit (see note in renderPDF function)
-  fontObj[globalSettings.defaultFont]["normal"].tables.name.postScriptName["en"] = fontObj[globalSettings.defaultFont]["normal"].tables.name.postScriptName["en"].replaceAll(/\s+/g, "");
+  fontNormal.tables.name.postScriptName["en"] = fontNormal.tables.name.postScriptName["en"].replaceAll(/\s+/g, "");
 
-  let fontArr = await optimizeFont(fontObj[globalSettings.defaultFont]["normal"], fontObj[globalSettings.defaultFont]["italic"], globalThis.fontMetricsObj["normal"]);
+  let fontArr = await optimizeFont(fontNormal, fontItalic, globalThis.fontMetricsObj["normal"]);
 
   fontDataOptimized = fontArr[0].toArrayBuffer();
   await loadFont(globalSettings.defaultFont, fontDataOptimized, true);
@@ -2846,7 +2852,7 @@ export async function optimizeFont2() {
 
   // Optimize italics if metrics exist to do so
   if (globalThis.fontMetricsObj["italic"]) {
-    fontArr = await optimizeFont(fontObj[globalSettings.defaultFont]["italic"], null, globalThis.fontMetricsObj["italic"], "italic");
+    fontArr = await optimizeFont(fontItalic, null, globalThis.fontMetricsObj["italic"], "italic");
     fontDataOptimizedItalic = fontArr[0].toArrayBuffer();
     await loadFont(globalSettings.defaultFont + "-italic", fontDataOptimizedItalic, true);
   }
