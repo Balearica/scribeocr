@@ -135,11 +135,11 @@ canvas.overlayVpt = false;
 canvas.renderOnAddRemove = false;
 
 // Content that should be run once, after all dependencies are done loading are done loading
-globalThis.runOnLoad = function () {
+globalThis.runOnLoad = async function () {
 
   // Load fonts
-  loadFontFamily("Open Sans", globalThis.fontMetricsObj);
-  loadFontFamily("Libre Baskerville", globalThis.fontMetricsObj);
+  await loadFontFamily("Open Sans", globalThis.fontMetricsObj);
+  await loadFontFamily("Libre Baskerville", globalThis.fontMetricsObj);
 
   // Detect whether SIMD instructions are supported
   simd().then(async function (x) {
