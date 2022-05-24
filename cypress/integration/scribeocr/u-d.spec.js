@@ -1,14 +1,16 @@
 const httpServer = Cypress.env('TESTSITE');
 
 describe('It downloads a', () => {
-  beforeEach(() => {
+ /*  beforeEach(() => {
     cy.visit(httpServer);
     cy.get('#nav-import-tab').click();
-  })
+  }) */
 
   //JPG Upload -> Download 
 
   it('text file from jpg with hOCR', () => {
+    cy.visit(httpServer);
+    cy.get('#nav-import-tab').click();
     cy.wait(5000)
     cy.get('#uploader', { timeout: 10000 }).selectFile([
       'cypress/fixtures/multi_jpg/henreys_grave.xml',
@@ -17,6 +19,7 @@ describe('It downloads a', () => {
     cy.get('#pageCount').should('have.text', '1')
     cy.wait(500)
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionText').click()
     cy.get('#download').click()
@@ -25,6 +28,8 @@ describe('It downloads a', () => {
   })
   
   it('text file from 4 jpgs with 4 hOCRs', () => {
+    cy.visit(httpServer);
+    cy.get('#nav-import-tab').click();
     cy.wait(5000)
     cy.get('#uploader', { timeout: 10000 }).selectFile([
       'cypress/fixtures/snow_drops.xml', 
@@ -38,6 +43,7 @@ describe('It downloads a', () => {
     ])
     cy.get('#pageCount').should('have.text', '4')
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionText').click()
     cy.get('#download').click()
@@ -46,6 +52,8 @@ describe('It downloads a', () => {
   }) 
 
   it('downloads a pdf file from jpg with hOCR (xml for browserstack but data from tess), NATIVE', () => {
+    cy.visit(httpServer);
+    cy.get('#nav-import-tab').click();
     cy.wait(5000)
     cy.get('#uploader', { timeout: 10000 }).selectFile([
       'cypress/fixtures/multi_jpg/the_past.xml',
@@ -55,9 +63,11 @@ describe('It downloads a', () => {
     cy.wait(3000)
 
     cy.get('#nav-view-tab').click()
+    cy.wait(3000)
     cy.get('#colorMode').select('Native')
 
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
     cy.get('#download').click()
@@ -66,6 +76,8 @@ describe('It downloads a', () => {
   })
 
   it('downloads a pdf file from jpg with hOCR (xml for browserstack but data from tess), BINARY', () => {
+    cy.visit(httpServer);
+    cy.get('#nav-import-tab').click();
     cy.wait(5000)
     cy.get('#uploader', { timeout: 10000 }).selectFile([
       'cypress/fixtures/multi_jpg/the_past.xml',
@@ -75,9 +87,11 @@ describe('It downloads a', () => {
     cy.wait(3000)
 
     cy.get('#nav-view-tab').click()
+    cy.wait(3000)
     cy.get('#colorMode').select('Binary')
 
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
     cy.get('#download').click()
@@ -86,6 +100,8 @@ describe('It downloads a', () => {
   })
   
   it('pdf file from 4 jpgs with 4 hOCRs', () => {
+    cy.visit(httpServer);
+    cy.get('#nav-import-tab').click();
     cy.wait(5000)
     cy.get('#uploader', { timeout: 10000 }).selectFile([
       'cypress/fixtures/snow_drops.xml', 
@@ -109,6 +125,8 @@ describe('It downloads a', () => {
   }) 
 
   it('hocr file from jpg', () => {
+    cy.visit(httpServer);
+    cy.get('#nav-import-tab').click();
     cy.wait(5000)
     cy.get('#uploader', { timeout: 10000 }).selectFile([
       'cypress/fixtures/multi_jpg/aurelia_jpg.xml',
@@ -117,6 +135,7 @@ describe('It downloads a', () => {
     cy.get('#pageCount').should('have.text', '1')
     cy.wait(3000)
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionHOCR').click()
     cy.get('#download').click()
@@ -125,6 +144,8 @@ describe('It downloads a', () => {
   })
 
   it('hocr file from 4 jpgs', () => {
+    cy.visit(httpServer);
+    cy.get('#nav-import-tab').click();
     cy.wait(5000)
     cy.get('#uploader', { timeout: 10000 }).selectFile([
       'cypress/fixtures/snow_drops.xml', 
@@ -138,6 +159,7 @@ describe('It downloads a', () => {
     ])
     cy.get('#pageCount').should('have.text', '4')
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionHOCR').click()
     cy.get('#download').click()
@@ -148,6 +170,8 @@ describe('It downloads a', () => {
   // PDF Upload -> Download 
 
   it('text file from a pdf with different page numbered xml', () => {
+    cy.visit(httpServer);
+    cy.get('#nav-import-tab').click();
     cy.wait(5000)
     cy.get('#uploader', { timeout: 10000 }).selectFile(
       ['cypress/fixtures/siegeofcorinthpo00byrorich_abbyy.xml', 
@@ -156,6 +180,7 @@ describe('It downloads a', () => {
     cy.get('#pageCount').should('have.text', '114')
     cy.wait(5000)
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionText').click()
     cy.wait(5000)
@@ -190,10 +215,13 @@ describe('It downloads a', () => {
   // PNG Upload -> Download 
 
   it('text file from a png with hOCR', () => {
+    cy.visit(httpServer);
+    cy.get('#nav-import-tab').click();
     cy.get('#uploader').selectFile(['cypress/fixtures/pretty_faces.xml', 'cypress/fixtures/pretty_faces.png'])
     cy.get('#pageCount').should('have.text', '1')
     cy.wait(100)
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionText').click()
     cy.get('#download').click()
@@ -201,6 +229,8 @@ describe('It downloads a', () => {
   })
 
   it('text file from 4 pngs with 4 hOCRs', () => {
+    cy.visit(httpServer);
+    cy.get('#nav-import-tab').click();
     cy.get('#uploader').selectFile([
       'cypress/fixtures/pretty_faces.xml', 
       'cypress/fixtures/pretty_faces.png', 
@@ -212,6 +242,7 @@ describe('It downloads a', () => {
       'cypress/fixtures/multi_png/the_past.png'])
     cy.get('#pageCount').should('have.text', '4')
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionText').click()
     cy.get('#download').click()
@@ -219,31 +250,39 @@ describe('It downloads a', () => {
   })
 
   it('pdf file from a png with hOCR, BINARY', () => {
+    cy.visit(httpServer);
+    cy.get('#nav-import-tab').click();
     cy.get('#uploader').selectFile(['cypress/fixtures/pretty_faces.xml', 'cypress/fixtures/pretty_faces.png'])
     cy.wait(100)
     cy.get('#pageCount').should('have.text', '1')
     
 
     cy.get('#nav-view-tab').click()
+    cy.wait(3000)
     cy.get('#colorMode').select('Binary')
 
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
     cy.get('#download').click()
-    cy.wait(1000)
+    cy.wait(3000)
     cy.verifyDownload('pretty_faces.pdf', {contains: true})
   })
 
   it('pdf file from a png with hOCR, NATIVE', () => {
+    cy.visit(httpServer);
+    cy.get('#nav-import-tab').click();
     cy.get('#uploader').selectFile(['cypress/fixtures/pretty_faces.xml', 'cypress/fixtures/pretty_faces.png'])
     cy.get('#pageCount').should('have.text', '1')
     cy.wait(100)
 
     cy.get('#nav-view-tab').click()
+    cy.wait(3000)
     cy.get('#colorMode').select('Native')
 
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
     cy.get('#download').click()
@@ -251,6 +290,8 @@ describe('It downloads a', () => {
   })
 
   it('pdf file from 4 pngs with 4 hOCRs', () => {
+    cy.visit(httpServer);
+    cy.get('#nav-import-tab').click();
     cy.get('#uploader').selectFile([
       'cypress/fixtures/pretty_faces.xml', 
       'cypress/fixtures/pretty_faces.png', 
@@ -262,6 +303,7 @@ describe('It downloads a', () => {
       'cypress/fixtures/multi_png/the_past.png'])
     cy.get('#pageCount').should('have.text', '4')
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
     cy.get('#download').click()
@@ -269,11 +311,14 @@ describe('It downloads a', () => {
   })
 
   it('hocr file from jpg)', () => {
+    cy.visit(httpServer);
+    cy.get('#nav-import-tab').click();
     cy.get('#uploader').selectFile(['cypress/fixtures/pretty_faces.xml', 'cypress/fixtures/pretty_faces.png'])
     cy.wait(3000)
     cy.get('#pageCount').should('have.text', '1')
     cy.wait(3000)
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionHOCR').click()
     cy.get('#download').click()
@@ -282,6 +327,8 @@ describe('It downloads a', () => {
   })
 
   it('downloads a hocr file from 4 jpgs', () => {
+    cy.visit(httpServer);
+    cy.get('#nav-import-tab').click();
     cy.get('#uploader').selectFile([
       'cypress/fixtures/snow_drops.jpg',
       'cypress/fixtures/snow_drops.xml', 

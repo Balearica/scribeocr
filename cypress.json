@@ -1,7 +1,7 @@
 {
   "defaultCommandTimeout": 10000,
-  "viewportWidth": 1200,
-  "viewportHeight": 1000,
+  "downloadsFolder": "../../../../../../Users/hello/Downloads",
+  "retries": 2,
   "env": {
     "TESTSITE": "https://scribeocr.com/"
   }

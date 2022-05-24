@@ -13,11 +13,13 @@ describe('It', () => {
     
     
     cy.get('#nav-recognize-tab').click()
+    cy.wait(3000)
     cy.get('#recognizeAll').click()
 
     cy.wait(11000)
 
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionText').click()
     cy.get('#download').click()
@@ -53,15 +55,18 @@ describe('It', () => {
     cy.get('#pageCount').should('have.text', '1')
     
     cy.get('#nav-recognize-tab').click()
+    cy.wait(3000)
     cy.get('#recognizeAll').click()
 
     cy.wait(12000)
 
     cy.get('#nav-view-tab').click()
+    cy.wait(3000)
     cy.get('#colorMode').select('Color')
     
 
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
     cy.get('#download').click()
@@ -74,15 +79,18 @@ describe('It', () => {
     cy.get('#pageCount').should('have.text', '1')
     
     cy.get('#nav-recognize-tab').click()
+    cy.wait(3000)
     cy.get('#recognizeAll').click()
 
     cy.wait(12000)
 
     cy.get('#nav-view-tab').click()
+    cy.wait(3000)
     cy.get('#colorMode').select('Binary')
     
 
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
     cy.get('#download').click()
@@ -118,11 +126,13 @@ describe('It', () => {
     cy.get('#pageCount').should('have.text', '1')
 
     cy.get('#nav-recognize-tab').click()
+    cy.wait(3000)
     cy.get('#recognizeAll').click()
 
     cy.wait(12000)
 
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionHOCR').click()
     cy.get('#download').click()

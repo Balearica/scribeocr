@@ -7,8 +7,9 @@
 //
 // You can change the location of this file or turn off
 // automatically serving support files with the
-// 'supportFile' configuration option.
-//
+// 'supportFile' configuration option. 
+
+
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
@@ -19,8 +20,8 @@ import './commands'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-Cypress.on('uncaught:exception', (err, runnable) => {
+//Cypress.on('uncaught:exception', (err, runnable) => {
   // returning false here prevents Cypress from
   // failing the test
-  return false
-})
+  //return false
+//})

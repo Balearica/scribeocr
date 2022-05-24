@@ -13,6 +13,7 @@ describe('It downloads a', () => {
     cy.get('#pageCount').should('have.text', '114')
     cy.wait(5000)
     cy.get('#nav-download-tab').click()
+    cy.wait(3000)
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionText').click()
     cy.wait(5000)
