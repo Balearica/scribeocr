@@ -208,7 +208,7 @@ export async function renderPage(canvas, doc, xmlDoc, mode = "screen", defaultFo
             ctx.font = fontStyle + " " + wordFontSize + 'px ' + fontFamilyWord;
           }
 
-          const fontObjI = fontObj[fontFamilyWord][fontStyle];
+          const fontObjI = await fontObj[fontFamilyWord][fontStyle];
 
           // Calculate font glyph metrics for precise positioning
           let wordLastGlyphMetrics = fontObjI.charToGlyph(wordText.substr(-1)).getMetrics();
