@@ -208,12 +208,14 @@ export async function renderPage(canvas, doc, xmlDoc, mode = "screen", defaultFo
             ctx.font = fontStyle + " " + wordFontSize + 'px ' + fontFamilyWord;
           }
 
-          // Calculate font glyph metrics for precise positioning
-          let wordLastGlyphMetrics = fontObj[fontFamilyWord][fontStyle].charToGlyph(wordText.substr(-1)).getMetrics();
-          let wordFirstGlyphMetrics = fontObj[fontFamilyWord][fontStyle].charToGlyph(wordText.substr(0,1)).getMetrics();
+          const fontObjI = fontObj[fontFamilyWord][fontStyle];
 
-          let wordLeftBearing = wordFirstGlyphMetrics.xMin * (fontSize / fontObj[fontFamilyWord][fontStyle].unitsPerEm);
-          let wordRightBearing = wordLastGlyphMetrics.rightSideBearing * (fontSize / fontObj[fontFamilyWord][fontStyle].unitsPerEm);
+          // Calculate font glyph metrics for precise positioning
+          let wordLastGlyphMetrics = fontObjI.charToGlyph(wordText.substr(-1)).getMetrics();
+          let wordFirstGlyphMetrics = fontObjI.charToGlyph(wordText.substr(0,1)).getMetrics();
+
+          let wordLeftBearing = wordFirstGlyphMetrics.xMin * (fontSize / fontObjI.unitsPerEm);
+          let wordRightBearing = wordLastGlyphMetrics.rightSideBearing * (fontSize / fontObjI.unitsPerEm);
 
 
           let wordWidth1 = ctx.measureText(wordText).width;
