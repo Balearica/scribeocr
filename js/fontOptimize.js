@@ -532,6 +532,7 @@ export function calculateOverallFontMetrics(fontMetricObjsMessage){
 // https://stackoverflow.com/questions/14527408/defining-small-caps-font-variant-with-font-face
 export async function createSmallCapsFont(font, fontFamily, heightSmallCaps, fontMetricsObj = null) {
   
+  font = await font;
   let fontData = font.toArrayBuffer();
   let workingFont = opentype.parse(fontData, { lowMemory: false });
 
