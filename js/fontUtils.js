@@ -8,6 +8,7 @@ import { createSmallCapsFont } from "./fontOptimize.js";
 
 // Load all font styles for specified font family
 export async function loadFontFamily(fontFamily, fontMetricsObj) {
+  console.log("Running loadFontFamily");
   const heightSmallCaps = fontMetricsObj?.["heightSmallCaps"] || 1;
 
   if(fontFamily.toLowerCase() == "open sans"){
@@ -66,6 +67,7 @@ export async function loadFontBrowser(fontFamily, fontStyle, src, overwrite = fa
 
 // Load font as opentype.js object, call loadFontBrowser to load as FontFace
 export async function loadFont(font, src = null, overwrite = false){
+  console.log("Running loadFont");
   if(typeof(window.fontObj) == "undefined"){
     window.fontObj = new Object;
   }
