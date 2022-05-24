@@ -317,7 +317,7 @@ export async function renderPage(canvas, doc, xmlDoc, mode = "screen", defaultFo
             // https://developer.mozilla.org/en-US/docs/Web/API/TextMetrics/fontBoundingBoxDescent
             //let fontDesc = (jMetrics.fontBoundingBoxDescent - oMetrics.actualBoundingBoxDescent) * (fontSize / 1000);
 
-            let fontBoundingBoxDescent = Math.round(Math.abs(fontObj[defaultFont]["normal"].descender) * (1000 / fontObj[defaultFont]["normal"].unitsPerEm));
+            let fontBoundingBoxDescent = Math.round(Math.abs(fontObjI.descender) * (1000 / fontObjI.unitsPerEm));
 
             let fontDesc = (fontBoundingBoxDescent - oMetrics.actualBoundingBoxDescent) * (fontSize / 1000);
 
