@@ -1,6 +1,6 @@
 {
   "defaultCommandTimeout": 10000,
   "env": {
-    "TESTSITE": "https://scribeocr.com/"
+    "TESTSITE": "balearica-patch-1.scribeocr.pages.dev"
   }
 }
