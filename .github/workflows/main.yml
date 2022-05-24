@@ -8,8 +8,11 @@ jobs:
         uses: actions/checkout@v2
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
-      - name: npx cypress run --browser chrome
+      - name: Cypress run
         uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+
       # Alternative: create and commit an empty cypress/screenshots folder
       # to always have something to upload
       - uses: actions/upload-artifact@v2
