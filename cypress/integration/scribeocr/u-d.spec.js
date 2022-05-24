@@ -56,7 +56,7 @@ describe('It downloads a', () => {
 
     cy.get('#nav-view-tab').click()
     cy.get('#colorMode').select('Native')
-
+    cy.wait(500)
     cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
@@ -76,7 +76,7 @@ describe('It downloads a', () => {
 
     cy.get('#nav-view-tab').click()
     cy.get('#colorMode').select('Binary')
-
+    cy.wait(500)
     cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
@@ -226,7 +226,7 @@ describe('It downloads a', () => {
 
     cy.get('#nav-view-tab').click()
     cy.get('#colorMode').select('Binary')
-
+    cy.wait(500)
     cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
@@ -242,7 +242,7 @@ describe('It downloads a', () => {
 
     cy.get('#nav-view-tab').click()
     cy.get('#colorMode').select('Native')
-
+    cy.wait(500)
     cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
