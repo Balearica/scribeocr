@@ -22,6 +22,7 @@ export async function loadFontFamily(fontFamily, fontMetricsObj) {
     await loadFont("Libre Baskerville-small-caps", null, true);
     await createSmallCapsFont(window.fontObj["Libre Baskerville"]["small-caps"], "Libre Baskerville", heightSmallCaps);
   }
+  return;
 }
 
 // Load font as FontFace (used for displaying on canvas)
