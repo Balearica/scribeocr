@@ -473,6 +473,7 @@ function setCurrentHOCR(x) {
 
 async function changeDisplayFont(font) {
   if (!currentPage.xmlDoc) return;
+  console.log("Running changeDisplayFont");
   globalThis.hocrCurrent[currentPage.n] = currentPage.xmlDoc?.documentElement.outerHTML;
   const optimizeMode = optimizeFontElem.checked;
   if (typeof (fontObj[font]) != "undefined" && typeof (fontObj[font]["normal"]) != "undefined" && fontObj[font]["normal"].optimized == optimizeMode) {
@@ -2639,6 +2640,7 @@ async function onNextPage() {
 
 
 async function optimizeFontClick(value) {
+  console.log("Running optimizeFontClick");
   if (inputDataModes.xmlMode[currentPage.n]) {
     globalThis.hocrCurrent[currentPage.n] = currentPage.xmlDoc?.documentElement.outerHTML;
   }
