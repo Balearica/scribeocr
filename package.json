@@ -8,7 +8,8 @@
   },
   "devDependencies": {
     "cy-verify-downloads": "^0.1.2",
-    "cypress": "^9.6.1"
+    "cypress": "^9.5.4"
+
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
