@@ -57,10 +57,12 @@ describe('It recognises and downloads a', () => {
     cy.wait(10000)
 
     cy.get('#nav-view-tab').click()
-    cy.get('#colorMode').select('Native')
     cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
+    cy.get('#colorMode').select('Native')
+    
 
     cy.get('#nav-download-tab').click()
+    cy.get('#nav-download-tab').should('not.have.class', 'collapsed')
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
     cy.get('#download').click()
@@ -78,10 +80,11 @@ describe('It recognises and downloads a', () => {
     cy.wait(10000)
 
     cy.get('#nav-view-tab').click()
-    cy.get('#colorMode').select('Binary')
     cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
+    cy.get('#colorMode').select('Binary')
 
     cy.get('#nav-download-tab').click()
+    cy.get('#nav-download-tab').should('not.have.class', 'collapsed')
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
     cy.get('#download').click()
