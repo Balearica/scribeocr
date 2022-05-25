@@ -108,7 +108,7 @@ export async function loadFont(font, src = null, overwrite = false){
       // UNFINISHED
       if(!window.fontObjRaw[familyStr][styleStr]){
         fontObj[familyStr][styleStr] = opentype.load(src).then((x) => {
-          fontObj[familyStr][styleStr] = x.toArrayBuffer();
+          fontObjRaw[familyStr][styleStr] = x.toArrayBuffer();
           return x;
         });
       } else {
