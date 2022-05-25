@@ -7,65 +7,66 @@ npm verb cli   'verbose'
 npm verb cli ]
 npm info using npm@8.5.5
 npm info using node@v16.15.0
-npm timing npm:load:whichnode Completed in 0ms
-npm timing config:load:defaults Completed in 1ms
-npm timing config:load:file:/home/gitpod/.nvm/versions/node/v16.15.0/lib/node_modules/npm/npmrc Completed in 1ms
-npm timing config:load:builtin Completed in 1ms
-npm timing config:load:cli Completed in 1ms
-npm timing config:load:env Completed in 0ms
+npm timing npm:load:whichnode Completed in 1ms
+npm timing config:load:defaults Completed in 2ms
+npm timing config:load:file:/home/gitpod/.nvm/versions/node/v16.15.0/lib/node_modules/npm/npmrc Completed in 8ms
+npm timing config:load:builtin Completed in 9ms
+npm timing config:load:cli Completed in 7ms
+npm timing config:load:env Completed in 1ms
 npm timing config:load:file:/workspace/scribeocr/tmpBstackPackages/.npmrc Completed in 0ms
-npm timing config:load:project Completed in 5ms
+npm timing config:load:project Completed in 8ms
 npm timing config:load:file:/home/gitpod/.npmrc Completed in 0ms
 npm timing config:load:user Completed in 1ms
 npm timing config:load:file:/home/gitpod/.nvm/versions/node/v16.15.0/etc/npmrc Completed in 0ms
 npm timing config:load:global Completed in 0ms
 npm timing config:load:validate Completed in 0ms
 npm timing config:load:credentials Completed in 1ms
-npm timing config:load:setEnvs Completed in 1ms
-npm timing config:load Completed in 12ms
-npm timing npm:load:configload Completed in 12ms
-npm timing npm:load:setTitle Completed in 1ms
-npm timing config:load:flatten Completed in 2ms
-npm timing npm:load:display Completed in 5ms
-npm verb logfile /home/gitpod/.npm/_logs/2022-05-25T16_43_03_888Z-debug-0.log
-npm timing npm:load:logFile Completed in 4ms
+npm timing config:load:setEnvs Completed in 2ms
+npm timing config:load Completed in 31ms
+npm timing npm:load:configload Completed in 31ms
+npm timing npm:load:setTitle Completed in 0ms
+npm timing config:load:flatten Completed in 5ms
+npm timing npm:load:display Completed in 14ms
+npm verb logfile /home/gitpod/.npm/_logs/2022-05-25T18_25_40_425Z-debug-0.log
+npm timing npm:load:logFile Completed in 12ms
 npm timing npm:load:timers Completed in 0ms
 npm timing npm:load:configScope Completed in 0ms
-npm timing npm:load Completed in 25ms
+npm timing npm:load Completed in 62ms
 npm timing arborist:ctor Completed in 1ms
 npm timing arborist:ctor Completed in 0ms
-npm timing idealTree:init Completed in 12ms
+npm timing idealTree:init Completed in 14ms
 npm timing idealTree:userRequests Completed in 0ms
-npm http fetch GET 200 https://registry.npmjs.org/cy-verify-downloads 149ms (cache revalidated)
-npm timing idealTree:#root Completed in 161ms
+npm http fetch GET 200 https://registry.npmjs.org/cy-verify-downloads 184ms (cache miss)
+npm timing idealTree:#root Completed in 196ms
 npm timing idealTree:node_modules/cy-verify-downloads Completed in 0ms
-npm timing idealTree:buildDeps Completed in 163ms
-npm timing idealTree:fixDepFlags Completed in 1ms
-npm timing idealTree Completed in 176ms
-npm timing reify:loadTrees Completed in 177ms
-npm timing reify:diffTrees Completed in 0ms
-npm timing reify:retireShallow Completed in 1ms
-npm timing reify:createSparse Completed in 1ms
+npm timing idealTree:buildDeps Completed in 198ms
+npm timing idealTree:fixDepFlags Completed in 0ms
+npm timing idealTree Completed in 213ms
+npm timing reify:loadTrees Completed in 215ms
+npm timing reify:diffTrees Completed in 1ms
+npm timing reify:retireShallow Completed in 0ms
+npm timing reify:createSparse Completed in 4ms
 npm timing reify:loadBundles Completed in 0ms
-npm timing reifyNode:node_modules/cy-verify-downloads Completed in 13ms
-npm timing reify:unpack Completed in 13ms
-npm timing reify:unretire Completed in 0ms
-npm timing build:queue Completed in 0ms
-npm timing build:deps Completed in 0ms
-npm timing build Completed in 0ms
-npm timing reify:build Completed in 1ms
-npm timing reify:trash Completed in 0ms
-npm timing reify:save Completed in 2ms
-npm http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 51ms
-npm timing auditReport:getReport Completed in 52ms
+npm http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 63ms
+npm timing auditReport:getReport Completed in 65ms
 npm timing auditReport:init Completed in 0ms
-npm timing reify:audit Completed in 52ms
-npm timing reify Completed in 239ms
+npm timing reify:audit Completed in 68ms
+npm http fetch GET 200 https://registry.npmjs.org/cy-verify-downloads/-/cy-verify-downloads-0.1.7.tgz 92ms (cache miss)
+npm timing reifyNode:node_modules/cy-verify-downloads Completed in 101ms
+npm timing reify:unpack Completed in 101ms
+npm timing reify:unretire Completed in 0ms
+npm timing build:queue Completed in 3ms
+npm timing build:deps Completed in 3ms
+npm timing build Completed in 4ms
+npm timing reify:build Completed in 4ms
+npm timing reify:trash Completed in 0ms
+npm timing reify:save Completed in 4ms
+npm timing reify Completed in 344ms
 
-added 1 package, and audited 2 packages in 444ms
+added 1 package, and audited 2 packages in 679ms
 
 found 0 vulnerabilities
-npm timing command:install Completed in 244ms
+npm timing command:install Completed in 361ms
 npm verb exit 0
-npm timing npm Completed in 447ms
+npm timing npm Completed in 682ms
 npm info ok 

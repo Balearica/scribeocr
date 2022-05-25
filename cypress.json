@@ -1,7 +1,11 @@
 {
   "defaultCommandTimeout": 10000,
+  "viewportWidth": 1200,
+  "viewportHeight": 1000,
   "downloadsFolder": "../../../../../../Users/hello/Downloads",
   "env": {
     "TESTSITE": "https://feat-font-promise.scribeocr.pages.dev/"
-  }
+  },
+  "screenshotOnRunFailure": false,
+  "video": false
 }
