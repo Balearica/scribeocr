@@ -13,6 +13,8 @@ export function renderText(hocrCurrent){
     if(g > 0){
       textStr = textStr + "\n\n";
     }
+    // The exact text of empty pages can be changed depending on the parser, so any data <50 chars long is assumed to be an empty page
+    if(hocrCurrent[g]?.length < 50) continue;
     const pageXML = exportParser.parseFromString(hocrCurrent[g],"text/xml");
     const lines = pageXML.getElementsByClassName("ocr_line");
     for (let h = 0; h < lines.length; h++) {
