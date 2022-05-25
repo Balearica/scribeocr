@@ -1,5 +1,6 @@
 {
   "defaultCommandTimeout": 10000,
+  "downloadsFolder": "../../../../../../Users/hello/Downloads",
   "env": {
     "TESTSITE": "https://feat-font-promise.scribeocr.pages.dev/"
   }
