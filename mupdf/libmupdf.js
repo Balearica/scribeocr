@@ -1391,7 +1391,7 @@ var MEMFS = {
      node: {
       getattr: MEMFS.node_ops.getattr,
       setattr: MEMFS.node_ops.setattr,
-      //lookup: MEMFS.node_ops.lookup,
+      lookup: MEMFS.node_ops.lookup,
       mknod: MEMFS.node_ops.mknod,
       rename: MEMFS.node_ops.rename,
       unlink: MEMFS.node_ops.unlink,
