@@ -11,15 +11,15 @@ export async function loadFontFamily(fontFamily, fontMetricsObj) {
   const heightSmallCaps = fontMetricsObj?.["heightSmallCaps"] || 1;
 
   if(fontFamily.toLowerCase() == "open sans"){
-    await loadFont("Open Sans-italic", null, true);
-    await loadFont("Open Sans", null, true);
-    await loadFont("Open Sans-small-caps", null, true);
-    await createSmallCapsFont(window.fontObj["Open Sans"]["small-caps"], "Open Sans", heightSmallCaps);
+    loadFont("Open Sans-italic", null, true);
+    loadFont("Open Sans", null, true);
+    loadFont("Open Sans-small-caps", null, true);
+    createSmallCapsFont(window.fontObj["Open Sans"]["small-caps"], "Open Sans", heightSmallCaps);
   } else if(fontFamily.toLowerCase() == "libre baskerville"){
-    await loadFont("Libre Baskerville-italic", null, true);
-    await loadFont("Libre Baskerville", null, true);
-    await loadFont("Libre Baskerville-small-caps", null, true);
-    await createSmallCapsFont(window.fontObj["Libre Baskerville"]["small-caps"], "Libre Baskerville", heightSmallCaps);
+    loadFont("Libre Baskerville-italic", null, true);
+    loadFont("Libre Baskerville", null, true);
+    loadFont("Libre Baskerville-small-caps", null, true);
+    createSmallCapsFont(window.fontObj["Libre Baskerville"]["small-caps"], "Libre Baskerville", heightSmallCaps);
   }
 }
 
