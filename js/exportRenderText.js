@@ -40,6 +40,6 @@ export function renderText(hocrCurrent){
   const downloadFileNameElem = /** @type {HTMLInputElement} */(document.getElementById('downloadFileName'));
   let fileName = downloadFileNameElem.value.replace(/\.\w{1,4}$/, "") + ".txt";
 
-  saveAs(textBlob, fileName);
+  //saveAs(textBlob, fileName);
 
 }

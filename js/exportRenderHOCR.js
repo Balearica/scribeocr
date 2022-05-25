@@ -57,5 +57,5 @@ export function renderHOCR(hocrCurrent, fontMetricsObj){
 
   let fileName = document.getElementById("downloadFileName").value.replace(/\.\w{1,4}$/, "") + ".hocr";
 
-  saveAs(hocrBlob, fileName);
+  //saveAs(hocrBlob, fileName);
 }
