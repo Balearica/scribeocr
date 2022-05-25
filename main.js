@@ -135,7 +135,9 @@ canvas.overlayVpt = false;
 canvas.renderOnAddRemove = false;
 
 // Content that should be run once, after all dependencies are done loading are done loading
-globalThis.runOnLoad = function () {
+window.runOnLoad = function () {
+
+  window.runOnLoadRun = true;
 
   // Load fonts
   loadFontFamily("Open Sans", globalThis.fontMetricsObj);
@@ -1921,6 +1923,12 @@ async function importOCRFiles() {
 
 
 async function importFiles() {
+
+  // It looks like the "load" event is not always triggered (when the page is refreshed).
+  // This is a quick fix to make sure this function always runs. 
+  if(!window.runOnLoadRun){
+    window.runOnLoad();
+  }
 
   const curFiles = uploaderElem.files;
 
