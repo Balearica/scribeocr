@@ -71,7 +71,7 @@ export async function loadFont(font, src = null, overwrite = false){
   }
 
   if(typeof(window.fontObjRaw) == "undefined"){
-    window.fontObj = {};
+    window.fontObjRaw = {};
   }
 
 
