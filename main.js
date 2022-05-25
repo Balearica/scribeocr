@@ -26,7 +26,7 @@ import {
   updateHOCRWord, adjustBaseline, adjustBaselineRange, adjustBaselineRangeChange, updateHOCRBoundingBoxWord
 } from "./js/interfaceEdit.js";
 
-import { initMuPDFWorker } from "./mupdf/mupdf-async.js";
+// import { initMuPDFWorker } from "./mupdf/mupdf-async.js";
 
 
 // Third party libraries
@@ -2242,17 +2242,18 @@ async function importFiles() {
 
 // Scheduler for compressing PNG data
 async function initMuPDFScheduler(file, workers = 3) {
-  window.muPDFScheduler = Tesseract.createScheduler();
-  muPDFScheduler["pngRenderCount"] = 0;
-  for (let i = 0; i < workers; i++) {
-    const w = await initMuPDFWorker();
-    const fileData = await file.arrayBuffer();
-    const pdfDoc = await w.openDocument(fileData, file.name);
-    w["pdfDoc"] = pdfDoc;
+  return;
+  // window.muPDFScheduler = Tesseract.createScheduler();
+  // muPDFScheduler["pngRenderCount"] = 0;
+  // for (let i = 0; i < workers; i++) {
+  //   const w = await initMuPDFWorker();
+  //   const fileData = await file.arrayBuffer();
+  //   const pdfDoc = await w.openDocument(fileData, file.name);
+  //   w["pdfDoc"] = pdfDoc;
 
-    w.id = `png-${Math.random().toString(16).slice(3, 8)}`;
-    muPDFScheduler.addWorker(w);
-  }
+  //   w.id = `png-${Math.random().toString(16).slice(3, 8)}`;
+  //   muPDFScheduler.addWorker(w);
+  // }
 }
 
 async function loadImage(url, elem) {
@@ -2669,18 +2670,18 @@ window["binarySchedulerInit"] = async function () {
   return;
 }
 
-window["muPDFSchedulerInit"] = async function () {
-  await initMuPDFScheduler(window.pdfFile, 3);
-  if (window.imageAll) {
-    // TODO: Fix to work with promises
-    window["muPDFScheduler"]["pngRenderCount"] = 0;
-    //window["muPDFScheduler"]["pngRenderCount"] = [...Array(imageAll.length).keys()].filter((x) => typeof (imageAll[x]) == "object" && (colorModeElem.value == "binary" || imageAllColor[x] == colorModeElem.value)).length;
-  } else {
-    window["muPDFScheduler"]["pngRenderCount"] = 0;
-  }
+// window["muPDFSchedulerInit"] = async function () {
+//   await initMuPDFScheduler(window.pdfFile, 3);
+//   if (window.imageAll) {
+//     // TODO: Fix to work with promises
+//     window["muPDFScheduler"]["pngRenderCount"] = 0;
+//     //window["muPDFScheduler"]["pngRenderCount"] = [...Array(imageAll.length).keys()].filter((x) => typeof (imageAll[x]) == "object" && (colorModeElem.value == "binary" || imageAllColor[x] == colorModeElem.value)).length;
+//   } else {
+//     window["muPDFScheduler"]["pngRenderCount"] = 0;
+//   }
 
-  return;
-}
+//   return;
+// }
 
 // Function that is invoked before a scheduler is used.
 // If the scheduler already exists, resolves immediately.
