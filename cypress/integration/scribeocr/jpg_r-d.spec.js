@@ -3,7 +3,7 @@ const httpServer = Cypress.env('TESTSITE');
 describe('It recognises and downloads a', () => {
   beforeEach(() => {
     cy.visit(httpServer);
-    cy.get('#nav-import-tab').click().should('not.have.class', 'collapsed');
+    cy.get('#nav-import-tab').click();
   })
 
   it('text file from a jpg with no imported ocr data', () => {
@@ -12,13 +12,13 @@ describe('It recognises and downloads a', () => {
     cy.get('#pageCount').should('have.text', '1')
     
     
-    cy.get('#nav-recognize-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-recognize-tab').click()
     cy.get('#recognizeAll').click()
     cy.wait(10000)
 
     
 
-    cy.get('#nav-download-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionText').click()
     cy.get('#download').click()
@@ -36,11 +36,11 @@ describe('It recognises and downloads a', () => {
     cy.get('#pageCount').should('have.text', '4')
     
     
-    cy.get('#nav-recognize-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-recognize-tab').click()
     cy.get('#recognizeAll').click()
     cy.wait(30000)
 
-    cy.get('#nav-download-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionText').click()
     cy.get('#download').click()
@@ -52,14 +52,15 @@ describe('It recognises and downloads a', () => {
     cy.wait(3000)
     cy.get('#pageCount').should('have.text', '1')
     
-    cy.get('#nav-recognize-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-recognize-tab').click()
     cy.get('#recognizeAll').click()
     cy.wait(10000)
 
-    cy.get('#nav-view-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-view-tab').click()
     cy.get('#colorMode').select('Native')
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
 
-    cy.get('#nav-download-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
     cy.get('#download').click()
@@ -71,14 +72,16 @@ describe('It recognises and downloads a', () => {
     cy.wait(3000)
     cy.get('#pageCount').should('have.text', '1')
     
-    cy.get('#nav-recognize-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-recognize-tab').click()
+
     cy.get('#recognizeAll').click()
     cy.wait(10000)
 
-    cy.get('#nav-view-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-view-tab').click()
     cy.get('#colorMode').select('Binary')
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
 
-    cy.get('#nav-download-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
     cy.get('#download').click()
@@ -95,12 +98,12 @@ describe('It recognises and downloads a', () => {
     cy.wait(10000)
     cy.get('#pageCount').should('have.text', '4')
 
-    cy.get('#nav-recognize-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-recognize-tab').click()
     cy.get('#recognizeAll').click()
     cy.wait(30000)
 
 
-    cy.get('#nav-download-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
     cy.get('#download').click()
@@ -112,11 +115,11 @@ describe('It recognises and downloads a', () => {
     cy.wait(3000)
     cy.get('#pageCount').should('have.text', '1')
 
-    cy.get('#nav-recognize-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-recognize-tab').click()
     cy.get('#recognizeAll').click()
     cy.wait(15000)
 
-    cy.get('#nav-download-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionHOCR').click()
     cy.get('#download').click()
@@ -133,11 +136,11 @@ describe('It recognises and downloads a', () => {
     cy.wait(10000)
     cy.get('#pageCount').should('have.text', '4')
 
-    cy.get('#nav-recognize-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-recognize-tab').click()
     cy.get('#recognizeAll').click()
     cy.wait(30000)
 
-    cy.get('#nav-download-tab').click().should('not.have.class', 'collapsed')
+    cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionHOCR').click()  
     cy.get('#download').click()
