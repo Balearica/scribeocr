@@ -137,7 +137,7 @@ canvas.renderOnAddRemove = false;
 // Content that should be run once, after all dependencies are done loading are done loading
 window.runOnLoad = function () {
 
-  window.runOnLoadRun = true;
+  // window.runOnLoadRun = true;
 
   // Load fonts
   loadFontFamily("Open Sans", globalThis.fontMetricsObj);
@@ -1926,9 +1926,11 @@ async function importFiles() {
 
   // It looks like the "load" event is not always triggered (when the page is refreshed).
   // This is a quick fix to make sure this function always runs. 
-  if(!window.runOnLoadRun){
-    window.runOnLoad();
-  }
+  // if(!window.runOnLoadRun){
+  //   window.runOnLoad();
+  // }
+
+  window.runOnLoad();
 
   const curFiles = uploaderElem.files;
 

@@ -9,7 +9,7 @@ export function renderHOCR(hocrCurrent, fontMetricsObj){
   // Normally the content from the first page is used, however when the first page is empty or encounters a parsing error another page is used
   for (let i = (minValue - 1); i < maxValue; i++){
     // The exact text of empty pages can be changed depending on the parser, so any data <50 chars long is assumed to be an empty page
-    if (hocrCurrent[i].length > 50) {
+    if (hocrCurrent[i]?.length > 50) {
       firstPageStr = hocrCurrent[i].replace(/\<html\>/, "<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">");
       break;
     }

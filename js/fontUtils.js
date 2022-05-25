@@ -70,6 +70,11 @@ export async function loadFont(font, src = null, overwrite = false){
     window.fontObj = {};
   }
 
+  if(typeof(window.fontObjRaw) == "undefined"){
+    window.fontObj = {};
+  }
+
+
 
   if(src == null){
     src = fontFiles[font];
@@ -92,10 +97,24 @@ export async function loadFont(font, src = null, overwrite = false){
     fontObj[familyStr] = new Object;
   }
 
+  if(!fontObjRaw[familyStr]){
+    fontObjRaw[familyStr] = new Object;
+  }
+
+
   // Only load font if not already loaded
   if(overwrite || !fontObj[familyStr][styleStr]){
     if(typeof(src) == "string"){
-      fontObj[familyStr][styleStr] = opentype.load(src);
+      // UNFINISHED
+      if(!window.fontObjRaw[familyStr][styleStr]){
+        fontObj[familyStr][styleStr] = opentype.load(src).then((x) => {
+          fontObj[familyStr][styleStr] = x.toArrayBuffer();
+          return x;
+        });
+      } else {
+        fontObj[familyStr][styleStr] = opentype.parse(fontObjRaw[familyStr][styleStr], {lowMemory:false});
+      }
+      
 
       src = "url(" + src + ")";
     } else {
