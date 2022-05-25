@@ -624,10 +624,10 @@ async function createTesseractScheduler(workerN, config = null) {
   let workerOptions;
   if (globalSettings.simdSupport) {
     console.log("Using Tesseract with SIMD support (fast LSTM performance).")
-    workerOptions = { corePath: './tess/tesseract-core-sse.wasm.js', workerPath: './tess/worker.min.js' };
+    workerOptions = { corePath: 'https://scribeocr.com/tess/tesseract-core-sse.wasm.js', workerPath: 'https://scribeocr.com/tess/worker.min.js' };
   } else {
     console.log("Using Tesseract without SIMD support (slow LSTM performance).")
-    workerOptions = { corePath: './tess/tesseract-core.wasm.js', workerPath: './tess/worker.min.js' };
+    workerOptions = { corePath: 'https://scribeocr.com/tess/tesseract-core.wasm.js', workerPath: 'https://scribeocr.com/tess/worker.min.js' };
   }
 
   const scheduler = Tesseract.createScheduler();
