@@ -57,6 +57,7 @@ describe('It recognises and downloads a', () => {
     cy.wait(10000)
 
     cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Native')
     cy.wait(500)
     cy.get('#nav-download-tab').click()
@@ -76,6 +77,7 @@ describe('It recognises and downloads a', () => {
     cy.wait(10000)
 
     cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Binary')
     cy.wait(500)
     cy.get('#nav-download-tab').click()
@@ -197,6 +199,7 @@ it('r & d pdf from pdf, no imported ocr data, COLOR', () => {
   cy.wait(12000)
 
   cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
   cy.get('#colorMode').select('Color')
   
 
@@ -218,6 +221,7 @@ it('r & d pdf from pdf, no imported ocr data, BINARY', () => {
   cy.wait(12000)
 
   cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
   cy.get('#colorMode').select('Binary')
   
 
@@ -341,6 +345,7 @@ it('r & d pdf from pdf, no imported ocr data, BINARY', () => {
     cy.wait(15000)
 
     cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Native')
     cy.wait(500)
     cy.get('#nav-download-tab').click()
@@ -360,6 +365,7 @@ it('r & d pdf from pdf, no imported ocr data, BINARY', () => {
     cy.wait(15000)
 
     cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Binary')
     cy.wait(500)
     cy.get('#nav-download-tab').click()

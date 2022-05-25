@@ -26,6 +26,7 @@ describe('It downloads a', () => {
     cy.get('#pageCount').should('have.text', '114')
 
     cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Color')
     
 

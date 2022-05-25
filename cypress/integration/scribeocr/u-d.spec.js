@@ -55,6 +55,7 @@ describe('It downloads a', () => {
     cy.wait(3000)
 
     cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Native')
     cy.wait(500)
     cy.get('#nav-download-tab').click()
@@ -75,6 +76,7 @@ describe('It downloads a', () => {
     cy.wait(3000)
 
     cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Binary')
     cy.wait(500)
     cy.get('#nav-download-tab').click()
@@ -225,6 +227,7 @@ describe('It downloads a', () => {
     
 
     cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Binary')
     cy.wait(500)
     cy.get('#nav-download-tab').click()
@@ -241,6 +244,7 @@ describe('It downloads a', () => {
     cy.wait(100)
 
     cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Native')
     cy.wait(500)
     cy.get('#nav-download-tab').click()

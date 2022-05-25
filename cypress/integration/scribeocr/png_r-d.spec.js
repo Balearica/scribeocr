@@ -55,6 +55,7 @@ describe('It recognises and downloads a', () => {
     cy.wait(15000)
 
     cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Native')
     cy.wait(500)
     
@@ -75,6 +76,7 @@ describe('It recognises and downloads a', () => {
     cy.wait(15000)
 
     cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Binary')
     cy.wait(500)
     

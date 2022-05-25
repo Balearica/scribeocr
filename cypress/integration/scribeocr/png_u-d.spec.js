@@ -41,6 +41,7 @@ describe('It downloads a', () => {
     cy.wait(100)
 
     cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Binary')
 
     cy.get('#nav-download-tab').click()
@@ -57,6 +58,7 @@ describe('It downloads a', () => {
     cy.wait(100)
 
     cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Native')
 
     cy.get('#nav-download-tab').click()

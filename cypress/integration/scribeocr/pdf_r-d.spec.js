@@ -58,6 +58,7 @@ describe('It', () => {
     cy.wait(12000)
 
     cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Color')
     cy.wait(500)
 
@@ -79,6 +80,7 @@ describe('It', () => {
     cy.wait(12000)
 
     cy.get('#nav-view-tab').click()
+    cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Binary')
     cy.wait(500)
 
