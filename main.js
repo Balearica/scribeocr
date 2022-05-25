@@ -2815,7 +2815,7 @@ async function renderPDF() {
     let url = stream.toBlobURL("application/pdf");
     let fileName = downloadFileNameElem.value.replace(/\.\w{1,4}$/, "") + ".pdf";
 
-    //saveAs(url, fileName);
+    saveAs(url, fileName);
 
   });
 
