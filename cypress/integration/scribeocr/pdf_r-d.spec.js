@@ -59,7 +59,7 @@ describe('It', () => {
 
     cy.get('#nav-view-tab').click()
     cy.get('#colorMode').select('Color')
-    
+    cy.wait(500)
 
     cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
@@ -80,7 +80,7 @@ describe('It', () => {
 
     cy.get('#nav-view-tab').click()
     cy.get('#colorMode').select('Binary')
-    
+    cy.wait(500)
 
     cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()

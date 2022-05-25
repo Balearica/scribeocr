@@ -58,6 +58,7 @@ describe('It recognises and downloads a', () => {
 
     cy.get('#nav-view-tab').click()
     cy.get('#colorMode').select('Native')
+    cy.wait(500)
 
     cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
@@ -77,6 +78,7 @@ describe('It recognises and downloads a', () => {
 
     cy.get('#nav-view-tab').click()
     cy.get('#colorMode').select('Binary')
+    cy.wait(500)
 
     cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()

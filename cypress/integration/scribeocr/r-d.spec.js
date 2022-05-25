@@ -58,7 +58,7 @@ describe('It recognises and downloads a', () => {
 
     cy.get('#nav-view-tab').click()
     cy.get('#colorMode').select('Native')
-
+    cy.wait(500)
     cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
@@ -77,7 +77,7 @@ describe('It recognises and downloads a', () => {
 
     cy.get('#nav-view-tab').click()
     cy.get('#colorMode').select('Binary')
-
+    cy.wait(500)
     cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
@@ -342,7 +342,7 @@ it('r & d pdf from pdf, no imported ocr data, BINARY', () => {
 
     cy.get('#nav-view-tab').click()
     cy.get('#colorMode').select('Native')
-    
+    cy.wait(500)
     cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
@@ -361,7 +361,7 @@ it('r & d pdf from pdf, no imported ocr data, BINARY', () => {
 
     cy.get('#nav-view-tab').click()
     cy.get('#colorMode').select('Binary')
-    
+    cy.wait(500)
     cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
     cy.get('#formatLabelOptionPDF').click()
