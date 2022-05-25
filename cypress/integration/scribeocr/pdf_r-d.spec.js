@@ -82,7 +82,7 @@ describe('It', () => {
     cy.get('#nav-view-tab').click()
     cy.get('#nav-view-tab').should('not.have.class', 'collapsed')
     cy.get('#colorMode').select('Binary')
-    cy.wait(2000)
+    cy.wait(5000)
 
     cy.get('#nav-download-tab').click()
     cy.get('#downloadFormat').click()
