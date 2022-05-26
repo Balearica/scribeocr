@@ -2825,7 +2825,7 @@ async function renderPDF() {
 }
 
 // Modified version of code found in FileSaver.js
-window.saveAs = function saveAs(blob, name, opts) {
+window.saveAs = function(blob, name) {
   var a = document.createElement('a');
   name = name || blob.name || 'download';
   a.download = name;
