@@ -55,7 +55,7 @@ export function renderHOCR(hocrCurrent, fontMetricsObj){
   hocrInt = hocrInt.replaceAll(/xmlns\=[\'\"]{2}\s?/ig, "");
 
 
-  let hocrBlob = new Blob([hocrInt]);
+  let hocrBlob = new Blob([hocrInt],  {type : 'text/plain'});
 
   let fileName = document.getElementById("downloadFileName").value.replace(/\.\w{1,4}$/, "") + ".hocr";
 
