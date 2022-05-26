@@ -2837,7 +2837,11 @@ window.saveAs = function saveAs(blob, name, opts) {
   } else {
     a.href = URL.createObjectURL(blob);
   }
-  a.dispatchEvent(new MouseEvent('click'));
+  a.dispatchEvent(new MouseEvent('click', {
+    bubbles: true,
+    cancelable: true,
+    view: window
+  }));
   // try {
   //   a.dispatchEvent(new MouseEvent('click'));
   // } catch (e) {
