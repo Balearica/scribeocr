@@ -2837,19 +2837,11 @@ window.saveAs = function saveAs(blob, name, opts) {
   } else {
     a.href = window.URL.createObjectURL(blob);
   }
-  a.click();
-  // a.dispatchEvent(new MouseEvent('click', {
-  //   bubbles: true,
-  //   cancelable: true,
-  //   view: window
-  // }));
-  // try {
-  //   a.dispatchEvent(new MouseEvent('click'));
-  // } catch (e) {
-  //   var evt = document.createEvent('MouseEvents');
-  //   evt.initMouseEvent('click', true, true, window, 0, 0, 0, 80, 20, false, false, false, false, 0, null);
-  //   a.dispatchEvent(evt);
-  // }
+  a.dispatchEvent(new MouseEvent('click', {
+    bubbles: true,
+    cancelable: true,
+    view: window
+  }));
 }
 
 
