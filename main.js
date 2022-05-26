@@ -2832,6 +2832,11 @@ window.saveAs = function saveAs(blob, name, opts) {
   a.rel = 'noopener'; // tabnabbing
   // TODO: detect chrome extensions & packaged apps
   // a.target = '_blank'
+  if (typeof blob === 'string') {
+    a.href = blob;
+  } else {
+    a.href = URL.createObjectURL(blob);
+  }
   try {
     a.dispatchEvent(new MouseEvent('click'));
   } catch (e) {
