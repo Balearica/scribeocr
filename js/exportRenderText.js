@@ -36,10 +36,10 @@ export function renderText(hocrCurrent){
     }
   }
 
-  const textBlob = new Blob([textStr]);
+  const textBlob = new Blob([textStr],  {type : 'text/plain'});
   const downloadFileNameElem = /** @type {HTMLInputElement} */(document.getElementById('downloadFileName'));
   let fileName = downloadFileNameElem.value.replace(/\.\w{1,4}$/, "") + ".txt";
 
-  //saveAs(textBlob, fileName);
+  saveAs(textBlob, fileName);
 
 }
