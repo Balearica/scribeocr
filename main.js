@@ -2835,13 +2835,14 @@ window.saveAs = function saveAs(blob, name, opts) {
   if (typeof blob === 'string') {
     a.href = blob;
   } else {
-    a.href = URL.createObjectURL(blob);
+    a.href = window.URL.createObjectURL(blob);
   }
-  a.dispatchEvent(new MouseEvent('click', {
-    bubbles: true,
-    cancelable: true,
-    view: window
-  }));
+  a.click();
+  // a.dispatchEvent(new MouseEvent('click', {
+  //   bubbles: true,
+  //   cancelable: true,
+  //   view: window
+  // }));
   // try {
   //   a.dispatchEvent(new MouseEvent('click'));
   // } catch (e) {
