@@ -2829,7 +2829,7 @@ window.saveAs = function(blob, name) {
   var a = document.createElement('a');
   name = name || blob.name || 'download';
   a.download = name;
-  a.rel = 'noopener'; // tabnabbing
+  //a.rel = 'noopener'; // tabnabbing
   // TODO: detect chrome extensions & packaged apps
   // a.target = '_blank'
   if (typeof blob === 'string') {
