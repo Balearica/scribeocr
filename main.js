@@ -2812,10 +2812,10 @@ async function renderPDF() {
     // https://support.mozilla.org/en-US/kb/manage-downloads-preferences-using-downloads-menu
 
     //let url = stream.toBlobURL('application/pdf');
-    let url = stream.toBlobURL("application/pdf");
+    let url = stream.toBlobURL();
     let fileName = downloadFileNameElem.value.replace(/\.\w{1,4}$/, "") + ".pdf";
 
-    //saveAs(url, fileName);
+    saveAs(url, fileName);
 
   });
 
