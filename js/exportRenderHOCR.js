@@ -42,6 +42,7 @@ export function renderHOCR(hocrCurrent, fontMetricsObj){
   let fontXML = exportParser.parseFromString("<meta name='font-metrics' content='" + JSON.stringify(fontMetricsObj) + "'></meta>","text/xml");
    exportXML.getElementsByTagName("head")[0].appendChild(fontXML.firstChild);
 
+   // TODO: Consider how empty pages are handled (e.g. what happens when the first page is empty)
   for (let i = minValue; i < maxValue; i++){
 
     const pageXML = hocrCurrent[i]?.length > 50 ? exportParser.parseFromString(hocrCurrent[i], "text/xml") : exportParser.parseFromString('<div class="ocr_page"></div>', "text/xml");

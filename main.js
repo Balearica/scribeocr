@@ -2837,13 +2837,14 @@ window.saveAs = function saveAs(blob, name, opts) {
   } else {
     a.href = URL.createObjectURL(blob);
   }
-  try {
-    a.dispatchEvent(new MouseEvent('click'));
-  } catch (e) {
-    var evt = document.createEvent('MouseEvents');
-    evt.initMouseEvent('click', true, true, window, 0, 0, 0, 80, 20, false, false, false, false, 0, null);
-    a.dispatchEvent(evt);
-  }
+  a.dispatchEvent(new MouseEvent('click'));
+  // try {
+  //   a.dispatchEvent(new MouseEvent('click'));
+  // } catch (e) {
+  //   var evt = document.createEvent('MouseEvents');
+  //   evt.initMouseEvent('click', true, true, window, 0, 0, 0, 80, 20, false, false, false, false, 0, null);
+  //   a.dispatchEvent(evt);
+  // }
 }
 
 
