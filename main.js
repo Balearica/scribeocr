@@ -2824,6 +2824,23 @@ async function renderPDF() {
 
 }
 
+// Modified version of code found in FileSaver.js
+window.saveAs = function saveAs(blob, name, opts) {
+  var a = document.createElement('a');
+  name = name || blob.name || 'download';
+  a.download = name;
+  a.rel = 'noopener'; // tabnabbing
+  // TODO: detect chrome extensions & packaged apps
+  // a.target = '_blank'
+  try {
+    a.dispatchEvent(new MouseEvent('click'));
+  } catch (e) {
+    var evt = document.createEvent('MouseEvents');
+    evt.initMouseEvent('click', true, true, window, 0, 0, 0, 80, 20, false, false, false, false, 0, null);
+    a.dispatchEvent(evt);
+  }
+}
+
 
 // TODO: Rework storage of optimized vs. non-optimized fonts to be more organized
 var fontDataOptimized, fontDataOptimizedItalic, fontDataOptimizedSmallCaps;
