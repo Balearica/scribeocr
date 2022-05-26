@@ -44,9 +44,10 @@ export function renderHOCR(hocrCurrent, fontMetricsObj){
 
   for (let i = minValue; i < maxValue; i++){
 
-    const pageXML = exportParser.parseFromString(hocrCurrent[i], "text/xml");
-    
+    const pageXML = hocrCurrent[i]?.length > 50 ? exportParser.parseFromString(hocrCurrent[i], "text/xml") : exportParser.parseFromString('<div class="ocr_page"></div>', "text/xml");
+
     exportXML.body.appendChild(pageXML.getElementsByClassName("ocr_page")[0])
+
   }
 
   let hocrInt = exportXML.documentElement.outerHTML;
